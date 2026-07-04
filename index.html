@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--おっ、さてはインターネット老人会のものだな！？-->
+  <title>マルイチソフト</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+    :root {
+      --bg:        #0d0d14;
+      --bg-panel:  #111120;
+      --bg-card:   #16162a;
+      --border:    #2a2a4a;
+      --accent:    #c8a840;
+      --text:      #c8c8d8;
+      --text-dim:  #787898;
+      --cyan:      #40c8c8;
+      --link:      #6888ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── outer frame ── */
+    .frame {
+      max-width: 600px;
+      margin: 0 auto;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      min-height: 100vh;
+    }
+
+    /* ── header ── */
+    header {
+      padding: 32px 24px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-sub {
+      font-family: 'DotGothic16', monospace;
+      color: var(--cyan);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'DotGothic16', monospace;
+      font-size: 40px;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .header-tagline {
+      color: var(--text-dim);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── marquee bar ── */
+    .marquee-bar {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 0;
+      font-size: 12px;
+      color: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .marquee-unit {
+      display: inline-block;
+      padding-right: 48px;
+    }
+
+    .marquee-bar a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .marquee-bar a:hover { text-decoration: underline; }
+
+    /* ── visitor bar ── */
+    .visitor-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .counter {
+      display: inline-block;
+      background: #000;
+      color: #40ff80;
+      font-family: 'DotGothic16', monospace;
+      padding: 1px 6px;
+      border: 1px solid #40ff80;
+      letter-spacing: 0.1em;
+      font-size: 11px;
+      margin: 0 4px;
+    }
+
+    /* ── main content ── */
+    main {
+      padding: 24px 20px 40px;
+    }
+
+    /* ── section heading ── */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      margin-top: 32px;
+    }
+
+    .section-heading:first-child { margin-top: 0; }
+
+    .section-heading::before {
+      content: '■';
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .section-heading h2 {
+      font-family: 'DotGothic16', monospace;
+      font-size: 16px;
+      color: var(--text);
+      font-weight: normal;
+    }
+
+    /* ── about text ── */
+    .about p { margin-bottom: 4px; font-size: 13px; }
+
+    /* ── tool cards ── */
+    .tools { display: flex; flex-direction: column; gap: 12px; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+    }
+
+    .card-title {
+      font-family: 'DotGothic16', monospace;
+      font-size: 15px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .card-title::before {
+      content: '▸ ';
+      color: var(--accent);
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .card-link {
+      font-size: 12px;
+      color: var(--link);
+      text-decoration: none;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    .card-wip .card-title { color: var(--text-dim); }
+    .card-wip .card-desc  { color: #555570; }
+
+    /* ── notice ── */
+    .notice {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.9;
+    }
+
+    .notice a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .notice a:hover { text-decoration: underline; }
+
+    /* ── footer ── */
+    footer {
+      text-align: center;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <header>
+      <div class="header-sub">* &nbsp; W E L C O M E &nbsp; M Y &nbsp; H O M E P A G E &nbsp; *</div>
+      <h1>マルイチソフト</h1>
+      <div class="header-tagline">〜 自作ツール倉庫 〜</div>
+    </header>
+
+    <div class="marquee-bar">
+      <div class="marquee-track" id="marqueeTrack">
+        <span class="marquee-unit" id="marqueeUnit">
+          ☆★☆ &nbsp; ランディングページ（ここ）を公開しました &nbsp; ☆★☆ &nbsp; 感想などは<a href="https://x.com/unpokopokopop" target="_blank">Xアカウント</a>へどうぞ &nbsp;
+        </span>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const unit  = document.getElementById('marqueeUnit');
+        const track = document.getElementById('marqueeTrack');
+
+        // 1ユニット分の幅が確定してからコピーを埋める
+        const unitW = unit.offsetWidth;
+        const copies = Math.ceil(window.innerWidth / unitW) + 2;
+        for (let i = 0; i < copies; i++) {
+          track.appendChild(unit.cloneNode(true));
+        }
+
+        const speed = 60; // px/sec
+        let x = 0;
+        let last = null;
+
+        function step(ts) {
+          if (last !== null) {
+            x -= speed * (ts - last) / 1000;
+            if (x <= -unitW) x += unitW; // 1ユニット分戻すだけ
+            track.style.transform = `translateX(${x}px)`;
+          }
+          last = ts;
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })();
+    </script>
+
+    <div class="visitor-bar">
+      <span>あなたは <span class="counter">000123456</span> 人目の訪問者です</span>
+      <span>Last update: 2026.07.01</span>
+    </div>
+
+    <main>
+
+      <div class="section-heading">
+        <h2>このサイトについて</h2>
+      </div>
+      <div class="about">
+        <p>趣味でバイブコーディングで作っているツールを置いている個人ページです。</p>
+        <p>高性能よりも誰でも簡単につかえて楽しめるツールを理想としています。</p>
+      </div>
+
+      <div class="section-heading">
+        <h2>こうかいちゅうのツール</h2>
+      </div>
+      <div class="tools">
+
+        <div class="card">
+          <div class="card-title">常駐型詠唱補助機関・Alka 〜おるか〜</div>
+          <div class="card-desc">
+            AIイラスト生成のプロンプト作成をサポートするchrome拡張機能。サイドパネルに常駐して日本語から英語プロンプトへの変換、日本語の添削、シチュエーション案の創作、辞書からプロンプトの調合と様々な機能でプロンプト作成をサポートします。<br>
+            キャラクターがプロンプト内容について反応したりといったマスコット要素もあります。
+          </div>
+          <a class="card-link" href="#" target="_blank">→ つかってみる</a>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Talk Card Generator -TCG-</div>
+          <div class="card-desc">
+            各種AIに渡すとカード内のキャラクターが話しかけてくるカードが作れるジェネレーターwebページ。<br>
+            複数のキャラクターを対話させたり、シーンカードやアイテムカードを渡すと反応してくれます。<br>
+            新しい形のキャラクターチャット形式。
+          </div>
+          <a class="card-link" href="#" target="_blank">→ つかってみる</a>
+        </div>
+
+        <div class="card">
+          <div class="card-title">簡易モザイクツール -モザイくん-</div>
+          <div class="card-desc">
+            ブラウザ上で画像にモザイクをつけて出力できるモザイク加工webツール。複数枚の加工もサクサクできる。<br>
+            えちえちイラストをたくさん作った時には地味に便利なツール。
+          </div>
+          <a class="card-link" href="#" target="_blank">→ つかってみる</a>
+        </div>
+
+        <div class="card">
+          <div class="card-title">ホンログ</div>
+          <div class="card-desc">
+            スマホカメラで書籍のISBNバーコードを撮影して書籍情報と書影を取得し、購読日やメモをつけてログを取る。<br>
+            データはブラウザの保存領域に保存及びCSVエクスポート・インポート。
+          </div>
+          <a class="card-link" href="#" target="_blank">→ つかってみる</a>
+        </div>
+
+        <div class="card card-wip">
+          <div class="card-title">Pudding a la mode</div>
+          <div class="card-desc">制作中</div>
+        </div>
+
+      </div>
+
+      <div class="section-heading">
+        <h2>notece</h2>
+      </div>
+
+        <p>免責：作者は本サイトで配布中のツール及び生成物の使用で生じた損害について責任を負いません</p>
+        <p>Xアカウント：<a href="https://x.com/unpokopokopop" target="_blank">@unpokopokopop</a></p>
+        <p>ちちぷい：<a href="#" target="_blank">うんぽこ</a></p>
+
+    </main>
+
+    <footer>
+      Copyright (C) © 2026 うんぽこ All Rights Reserved.
+    </footer>
+
+  </div>
+</body>
+</html>
