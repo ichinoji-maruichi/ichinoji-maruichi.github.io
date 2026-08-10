@@ -40,7 +40,7 @@
 
     /* ── outer frame ── */
     .frame {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       border-left: 1px solid var(--border);
       border-right: 1px solid var(--border);
@@ -167,6 +167,35 @@
       padding: 16px 18px;
     }
 
+    /* サムネイル付きカードは横並び（画像 | 本文） */
+    .tools .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .card-thumb {
+      flex: 0 0 250px;
+      width: 250px;
+      display: block;
+      border: 1px solid var(--border);
+      background: #0a0a12;
+      line-height: 0;
+    }
+
+    .card-thumb img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
+      image-rendering: auto;
+    }
+
+    a.card-thumb:hover { border-color: var(--accent); }
+
+    .card-body { flex: 1 1 auto; min-width: 0; }
+
     .card-title {
       font-family: 'DotGothic16', monospace;
       font-size: 15px;
@@ -195,6 +224,12 @@
 
     .card-wip .card-title { color: var(--text-dim); }
     .card-wip .card-desc  { color: #555570; }
+
+    /* 狭い画面ではサムネを上に回り込ませる */
+    @media (max-width: 560px) {
+      .tools .card { flex-direction: column; }
+      .card-thumb { flex-basis: auto; width: 100%; }
+    }
 
     /* ── notice ── */
     .notice {
@@ -297,6 +332,8 @@
       </div>
         <div class="card">
           <div class="card-desc">
+            2026/8/11:画像切り出しツール「切りヌくん」公開<br>
+            2026/8/11:「ホンログ」GoogleBookAPIが無料枠だと混みすぎて使い物にならないのでリンクを一旦外しました。<br>
             2026/8/2:「うちの子ゲームになっちゃいました」CPU対戦モードを追加<br>
             2026/7/31：「うちの子ゲームになっちゃいました」公開<br>
             2026/7/20：ちちぷい→X投稿chrome拡張機能追加<br>
@@ -310,6 +347,8 @@
       <div class="tools">
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/uchinoko_act/" target="_blank"><img src="images/uchinoko_act.png" alt="うちの子ゲームになっちゃいました のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/uchinoko_act/" target="_blank"><div class="card-title">うちの子ゲームになっちゃいました [web tool]</div></a>
           <div class="card-desc">
             イラストを元に生成したゲーム用スプライト画像を読み込んで遊べる簡単なアクションゲームです。<br>
@@ -318,9 +357,12 @@
             2026/08/02:CPU対戦モードを追加
           </div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/uchinoko_act/" target="_blank">→ あそんでみる</a>
+          </div>
         </div>
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/talk_card/" target="_blank"><img src="images/talk_card.png" alt="Talk Card Generator -TCG- のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/talk_card/" target="_blank"><div class="card-title">Talk Card Generator -TCG- [web tool]</div></a>
           <div class="card-desc">
             各種AIに渡すとカード内のキャラクターが話しかけてくるカードが作れるジェネレーターwebページ。<br>
@@ -328,9 +370,12 @@
             新しい形のキャラクターチャット形式。
           </div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/talk_card/" target="_blank">→ つかってみる</a>
+          </div>
         </div>
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/mosaicn/" target="_blank"><img src="images/mosaicn.png" alt="簡易モザイクツール -モザイくん with STP- のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/mosaicn/" target="_blank"><div class="card-title">簡易モザイクツール -モザイくん with STP- [web tool]</div></a>
           <div class="card-desc">
             ブラウザ上で画像にモザイクをつけて出力できるモザイク加工webツール。複数枚の加工もサクサクできる。<br>
@@ -338,16 +383,22 @@
           <br>
             2026/07/07:スタンプ機能を追加。文字や画像をスタンプとして貼り付けることができます。</div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/mosaicn/" target="_blank">→ つかってみる</a>
+          </div>
         </div>
 
       <div class="card card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/pring_alamode/" target="_blank"><img src="images/pring_alamode.png" alt="流体シミュレーター Pudding a la mode のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/pring_alamode/" target="_blank"><div class="card-title">流体シミュレーター Pudding a la mode [web tool]</div></a>
           <div class="card-desc">好きな画像をぷるぷる揺らしたり液体をぶっかけたりして遊ぶトイツール。<br>
           レイヤーによって揺れる箇所や揺れ方などの設定を細かく行うことができます。</div>
         <a class="card-link" href="https://ichinoji-maruichi.github.io/pring_alamode/" target="_blank">→ あそんでみる</a>
+          </div>
         </div>
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/gion_maker/" target="_blank"><img src="images/gion_maker.png" alt="擬音メーカーExtra のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/gion_maker/" target="_blank"><div class="card-title">擬音メーカーExtra [web tool]</div></a>
           <div class="card-desc">
             AIに画像を渡して画像内容を分析して擬音やセリフをつけてもらうツール。<br>
@@ -356,9 +407,24 @@
           2026/07/18:セリフの追加と編集機能を追加
           </div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/gion_maker/" target="_blank">→ つかってみる</a>
+          </div>
         </div>
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/kirinukun/" target="_blank"><img src="images/kirinukun.png" alt="切りヌくん のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
+          <a class="card-link" href="https://ichinoji-maruichi.github.io/kirinukun/" target="_blank"><div class="card-title">切りヌくん [web tool]</div></a>
+          <div class="card-desc">
+            複数の切り出し範囲を指定して一括で画像を切り出すツール。zipでまとめて出力します。<br>
+            表情差分シートや三面図などからの切り出しなどに使えます。<br>
+          </div>
+          <a class="card-link" href="https://ichinoji-maruichi.github.io/kirinukun/" target="_blank">→ つかってみる</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb"><img src="images/chichi2x.png" alt="ちちぷい→X投稿ツール のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/miniapp/chichi2x.zip" target="_blank"><div class="card-title">ちちぷい→X投稿ツール [chrome拡張機能]</div></a>
           <div class="card-desc">
             ちちぷいの投稿ページからX投稿用のテキスト及び画像を生成するchrome拡張機能<br>
@@ -367,24 +433,32 @@
             複数の画像がある場合の設定（最初の1枚のみ、最大4枚目まで、自分で選択）。
           </div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/miniapp/chichi2x.zip" target="_blank">→ つかってみる（ダウンロード）</a>
+          </div>
         </div>
 
         <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/alka/" target="_blank"><img src="images/alka.png" alt="常駐型詠唱補助機関・Alka のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
           <a class="card-link" href="https://ichinoji-maruichi.github.io/alka/" target="_blank"><div class="card-title">常駐型詠唱補助機関・Alka 〜おるか〜 [chrome拡張機能]</div></a>
           <div class="card-desc">
             AIイラスト生成のプロンプト作成をサポートするchrome拡張機能。サイドパネルに常駐して日本語から英語プロンプトへの変換、日本語の添削、シチュエーション案の創作、辞書からプロンプトの調合と様々な機能でプロンプト作成をサポートします。<br>
             キャラクターがプロンプト内容について反応したりといったマスコット要素もあります。<br>
           ※プロンプト生成系の処理にはGemniAPIキーが必要</div>
           <a class="card-link" href="https://ichinoji-maruichi.github.io/alka/" target="_blank">→ つかってみる（紹介ページ・DLページに遷移）</a>
+          </div>
         </div>
 
         <div class="card">
+          <!-- a class="card-thumb" href="https://ichinoji-maruichi.github.io/honlog/" target="_blank"--><img src="images/honlog.png" alt="ホンログ のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"><!-- /a -->
+          <div class="card-body">
           <div class="card-title">ホンログ [web tool]</div>
           <div class="card-desc">
+            【公開停止中】GoogleBooksAPIの無料枠を仕様していましたが、無料枠（全API利用ユーザ共通）だとすぐに上限に到達して使い物にならないので一時リンク外します。個人APIキーに対応させたら再公開。<br>
             スマホカメラで書籍のISBNバーコードを撮影して書籍情報と書影を取得し、購読日やメモをつけてログを取る。<br>
             データはブラウザの保存領域に保存及びCSVエクスポート・インポート。
           </div>
-          <a class="card-link" href="https://ichinoji-maruichi.github.io/honlog/" target="_blank">→ つかってみる</a>
+          <!-- a class="card-link" href="https://ichinoji-maruichi.github.io/honlog/" target="_blank" -->→ つかってみる<!-- /a -->
+          </div>
         </div>
 
       <div class="section-heading">
