@@ -13,6 +13,7 @@
 | `chichi2x.png` | ちちぷい→X投稿ツール |
 | `alka.png` | 常駐型詠唱補助機関・Alka 〜おるか〜 |
 | `honlog.png` | ホンログ |
+| `x_cutter.png` | Ｘカッター |
 
 ## 推奨サイズ
 
