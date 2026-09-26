@@ -16,6 +16,7 @@
 | `x_cutter.png` | Ｘカッター |
 | `triangle_puzz.png` | さよなら△またきて□ |
 | `metakun.png` | メタくん |
+| `dotsnap.png` | dotsnap |
 
 ## 推奨サイズ
 
