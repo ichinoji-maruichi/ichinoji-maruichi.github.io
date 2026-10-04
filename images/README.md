@@ -17,6 +17,7 @@
 | `triangle_puzz.png` | さよなら△またきて□ |
 | `metakun.png` | メタくん |
 | `dotsnap.png` | dotsnap |
+| `erohon_hunt.jpg` | ガサ入れ1K |
 
 ## 推奨サイズ
 
