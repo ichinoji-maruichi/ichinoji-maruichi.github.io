@@ -18,6 +18,7 @@
 | `metakun.png` | メタくん |
 | `dotsnap.png` | dotsnap |
 | `erohon_hunt.jpg` | ガサ入れ1K |
+| `hanabi.jpg` | はなびメーカー |
 
 ## 推奨サイズ
 

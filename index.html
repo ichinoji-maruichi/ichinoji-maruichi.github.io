@@ -222,6 +222,18 @@
     }
     .card-link:hover { text-decoration: underline; }
 
+    /* こうしんりれき：長くなったので枠内スクロール */
+    .history {
+      max-height: calc(1.8em * 8);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      margin-bottom: 0;
+      padding-right: 8px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .history:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
     .card-wip .card-title { color: var(--text-dim); }
     .card-wip .card-desc  { color: #555570; }
 
@@ -331,7 +343,8 @@
         <h2>こうしんりれき</h2>
       </div>
         <div class="card">
-          <div class="card-desc">
+          <div class="card-desc history" tabindex="0" role="region" aria-label="こうしんりれき">
+            2026/10/6:イラストや文字を打ち上げ花火にする「はなびメーカー」公開<br>
             2026/10/5:3D宝探しゲーム「ガサ入れ1K」公開<br>
             2026/9/27:ドット絵仕上げツール「dotsnap」公開<br>
             2026/9/10:画像メタデータビューア「メタくん」公開<br>
@@ -355,6 +368,19 @@
         <h2>こうかいちゅうのツール</h2>
       </div>
       <div class="tools">
+
+        <div class="card">
+          <a class="card-thumb" href="https://ichinoji-maruichi.github.io/hanabi/" target="_blank"><img src="images/hanabi.jpg" alt="はなびメーカー のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
+          <div class="card-body">
+          <a class="card-link" href="https://ichinoji-maruichi.github.io/hanabi/" target="_blank"><div class="card-title">はなびメーカー [web tool]</div></a>
+          <div class="card-desc">
+            イラストや文字、手描きのらくがきを打ち上げ花火にして夜空に上げるトイツール。<br>
+            画像をアップすると絵の形の花火に（点描／輪郭）。文字花火は金・虹・桜・青の4色、簡易ペイントで描いた絵もそのまま打ち上げられます。<br>
+            タップで打ち上げ、自動連発、効果音と観客の歓声つき。音声付きの録画（最大30秒）もできます。
+          </div>
+          <a class="card-link" href="https://ichinoji-maruichi.github.io/hanabi/" target="_blank">→ あそんでみる</a>
+          </div>
+        </div>
 
         <div class="card">
           <a class="card-thumb" href="https://ichinoji-maruichi.github.io/erohon-hunt/" target="_blank"><img src="images/erohon_hunt.jpg" alt="ガサ入れ1K のスクリーンショット" loading="lazy" onerror="this.parentNode.style.display='none'"></a>
